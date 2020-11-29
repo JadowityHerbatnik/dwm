@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 
 /* appearance */
 static unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -48,12 +48,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+	/* class        instance             title       	  tags mask    isfloating   isterminal  noswallow  monitor */
+	{ "Gimp",       NULL,                NULL,       	      16,           0,           0,         0,        -1 },
+	{ NULL,         "brave-browser",     NULL,       	      1,            0,           0,         0,        -1 },
+	{ NULL,         "chromium",          NULL,       	      1,            0,           0,         0,        -1 },
+	{ NULL,         "web.whatsapp.com",  NULL,              8,            0,           0,         0,        -1 },
+	{ NULL,         "messenger.com",     NULL,              8,            0,           0,         0,        -1 },
+	{ TERMCLASS,    NULL,                NULL,       	      0,            0,           1,         0,        -1 },
+	{ "Alacritty",  NULL,                NULL,       	      0,            0,           1,         0,        -1 },
+	{ NULL,         NULL,                "Event Tester",    0,            0,           0,         1,        -1 },
+	{ NULL,         "spterm",            NULL,       	      SPTAG(0),     1,           1,         0,        -1 },
+	{ NULL,         "spcalc",            NULL,       	      SPTAG(1),     1,           1,         0,        -1 },
 };
 
 /* layout(s) */
