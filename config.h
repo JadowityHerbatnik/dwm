@@ -37,7 +37,7 @@ const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
+	{"spcalc",    spcmd2},
 };
 
 /* tagging */
@@ -50,10 +50,11 @@ static const Rule rules[] = {
 	*/
 	/* class        instance             title       	  tags mask    isfloating   isterminal  noswallow  monitor */
 	{ "Gimp",       NULL,                NULL,       	      16,           0,           0,         0,        -1 },
-	{ NULL,         "brave-browser",     NULL,       	      1,            0,           0,         0,        -1 },
-	{ NULL,         "chromium",          NULL,       	      1,            0,           0,         0,        -1 },
-	{ NULL,         "web.whatsapp.com",  NULL,              8,            0,           0,         0,        -1 },
-	{ NULL,         "messenger.com",     NULL,              8,            0,           0,         0,        -1 },
+	{ NULL,         "brave-browser",     NULL,       	      1,            0,           0,         0,         1 },
+	{ NULL,         "chromium",          NULL,       	      1,            0,           0,         0,         1 },
+	{ NULL,         "web.whatsapp.com",  NULL,       	      8,            0,           0,         0,         1 },
+	{ NULL,         "messenger.com",     NULL,       	      8,            0,           0,         0,         1 },
+	{ NULL,         "discordapp.com",    NULL,       	      8,            0,           0,         0,         1 },
 	{ TERMCLASS,    NULL,                NULL,       	      0,            0,           1,         0,        -1 },
 	{ "Alacritty",  NULL,                NULL,       	      0,            0,           1,         0,        -1 },
 	{ NULL,         NULL,                "Event Tester",    0,            0,           0,         1,        -1 },
@@ -69,14 +70,14 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
- 	{ "[]=",	tile },			/* Default: Master on left, slaves on right */
+	{ "[]=",	tile },			/* Default: Master on left, slaves on right */
 	{ "TTT",	bstack },		/* Master on top, slaves on bottom */
 
 	{ "[@]",	spiral },		/* Fibonacci spiral */
 	{ "[\\]",	dwindle },		/* Decreasing in size right and leftward */
 
 	{ "H[]",	deck },			/* Master on left, slaves in monocle-like mode on right */
- 	{ "[M]",	monocle },		/* All windows on top of eachother */
+	{ "[M]",	monocle },		/* All windows on top of eachother */
 
 	{ "|M|",	centeredmaster },		/* Master in middle, slaves on sides */
 	{ ">M>",	centeredfloatingmaster },	/* Same but master floats */
