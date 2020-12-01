@@ -205,8 +205,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,			XK_h,	focusmon,	{.i = -1 } },
 	/* J and K are automatically bound above in STACKEYS */
 	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
-	{ MODKEY|ShiftMask,		XK_l,	tagmon,		{.i = 1 } },
-	{ MODKEY|ControlMask,			XK_l,	focusmon,	{.i = 1 } },
+	{ MODKEY|ShiftMask,		XK_l,	tagmon,		{.i = +1 } },
+	{ MODKEY|ControlMask,			XK_l,	focusmon,	{.i = +1 } },
 	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
 	{ MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } },
 	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
