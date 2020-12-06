@@ -38,10 +38,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
+const char *spcmd3[] = {TERMINAL, "-n", "sptranslate", "-g", "80x20", "-e", "translate", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spcalc",    spcmd2},
+	{"sptranslate",    spcmd3},
 };
 
 /* tagging */
@@ -64,6 +66,7 @@ static const Rule rules[] = {
 	{ NULL,         NULL,                "Event Tester",    0,            0,           0,         1,        -1 },
 	{ NULL,         "spterm",            NULL,       	      SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,         "spcalc",            NULL,       	      SPTAG(1),     1,           1,         0,        -1 },
+	{ NULL,         "sptranslate",       NULL,       	      SPTAG(2),     1,           1,         0,        -1 },
 };
 
 /* layout(s) */
@@ -202,8 +205,8 @@ static Key keys[] = {
 	/* { MODKEY,			XK_d,		spawn,		SHCMD("") } }, */
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
-	{ MODKEY,			XK_g,		shiftview,	{ .i = -1 } },
-	{ MODKEY|ShiftMask,		XK_g,		shifttag,	{ .i = -1 } },
+	{ MODKEY,			XK_g,		togglescratch,	{ .ui = 2 } },
+	// { MODKEY|ShiftMask,		XK_g,		shifttag,	{ .i = -1 } },
 	{ MODKEY,			XK_h,		setmfact,	{.f = -0.05} },
 	{ MODKEY|ShiftMask,		XK_h,	tagmon,		{.i = -1 } },
 	{ MODKEY|ControlMask,			XK_h,	focusmon,	{.i = -1 } },
@@ -211,8 +214,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
 	{ MODKEY|ShiftMask,		XK_l,	tagmon,		{.i = +1 } },
 	{ MODKEY|ControlMask,			XK_l,	focusmon,	{.i = +1 } },
-	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
-	{ MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } },
+	// { MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
+	// { MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } },
 	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	/* { MODKEY,			XK_Return,	spawn,		{.v = termcmd } }, */
